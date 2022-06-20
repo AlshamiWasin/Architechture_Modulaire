@@ -40,7 +40,7 @@ public class Pain extends ProduitPerissable{
         final StringBuilder sb = new StringBuilder("CartePostale [");
         sb.append("libelle=").append(getLibelle());
         sb.append(", marque=").append(getMarque());
-        sb.append(", prixUnitaire=").append(getPrixUnitaire());
+        sb.append(", prixUnitaire=").append(getPrixUnitaire()).append(" euros");
         sb.append(", qteStock=").append(getQteStock());
         sb.append(", dateLimiteConso=").append( getDatelimitConso().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
         sb.append(", poids=").append(getPoids());

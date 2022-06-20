@@ -62,7 +62,7 @@ public class Achat {
             sb.append("\n");
 
         }
-        sb.append("Total de l'achat :").append(montant).append(" euros");
+        sb.append("Total de l'achat :").append( String.format("%.2f", montant)  ).append(" euros");
         return sb.toString();
     }
 }

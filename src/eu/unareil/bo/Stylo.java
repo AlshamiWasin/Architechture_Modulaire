@@ -45,7 +45,7 @@ public class Stylo extends Produit{
         sb.append("libelle='").append(getLibelle()).append('\'');
         sb.append(", typeMine='").append(typeMine).append('\'');
         sb.append("marque='").append(getMarque()).append('\'');
-        sb.append(", prixUnitaire='").append(getPrixUnitaire()).append('\'');
+        sb.append(", prixUnitaire='").append(getPrixUnitaire()).append(" euros").append('\'');
         sb.append(", qteStock='").append(getQteStock()).append('\'');
         sb.append("couleur='").append(couleur).append('\'');
         sb.append(", typeMine='").append(typeMine).append('\'');
