@@ -1,6 +1,8 @@
 package eu.unareil.bo;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Pain extends ProduitPerissable{
 
@@ -31,12 +33,16 @@ public class Pain extends ProduitPerissable{
 
     @Override
     public String toString() {
+
+        String pattern = "MM-dd-yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
         final StringBuilder sb = new StringBuilder("CartePostale [");
         sb.append("libelle=").append(getLibelle());
         sb.append(", marque=").append(getMarque());
         sb.append(", prixUnitaire=").append(getPrixUnitaire());
         sb.append(", qteStock=").append(getQteStock());
-        sb.append(", dateLimiteConso=").append(getDatelimitConso());
+        sb.append(", dateLimiteConso=").append( getDatelimitConso().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
         sb.append(", poids=").append(getPoids());
         sb.append(']');
         return sb.toString();

@@ -14,17 +14,13 @@ public class ProduitPerissable extends Produit{
         super(refProd, marque, libelle, qteStock, prixUnitaire);
         this.datelimitConso = datelimitConso;
     }
-
     public ProduitPerissable(LocalDate datelimitConso, String marque, String libelle, long qteStock, float prixUnitaire) {
         super(marque, libelle, qteStock, prixUnitaire);
         this.datelimitConso = datelimitConso;
     }
-
-
     public LocalDate getDatelimitConso() {
         return datelimitConso;
     }
-
     public void setDatelimitConso(LocalDate datelimitConso) {
         this.datelimitConso = datelimitConso;
     }
