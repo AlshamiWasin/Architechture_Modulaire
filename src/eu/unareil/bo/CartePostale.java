@@ -5,7 +5,6 @@ import java.util.List;
 
 public class CartePostale extends Produit{
 
-    private long id;
     private List<Auteur> lesAuteurs = new ArrayList<>();
     private TypeCartePostale type;
 
@@ -19,19 +18,12 @@ public class CartePostale extends Produit{
         this.type = type;
     }
 
-    public CartePostale(long refProd, String marque, String libelle, long qteStock, float prixUnitaire,long id, List<Auteur> lesAuteurs, TypeCartePostale type) {
-        this(refProd, marque, libelle, qteStock, prixUnitaire,lesAuteurs,type);
-        this.setId(id);
+    public CartePostale(String marque, String libelle, long qteStock, float prixUnitaire, List<Auteur> lesAuteurs, TypeCartePostale type) {
+        this(0, marque, libelle, qteStock, prixUnitaire,lesAuteurs,type);
     }
 
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public List<Auteur> getLesAuteurs() {
         return lesAuteurs;
@@ -41,20 +33,29 @@ public class CartePostale extends Produit{
         this.lesAuteurs = lesAuteurs;
     }
 
-    public String getType() {
+    public TypeCartePostale getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeCartePostale type) {
         this.type = type;
     }
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("CartePostale{");
-        sb.append("lesAuteurs=").append(lesAuteurs);
-        sb.append(", type='").append(type).append('\'');
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("CartePostale [");
+        sb.append("libelle=").append(getLibelle());
+        sb.append(", marque=").append(getMarque());
+        sb.append(", prixUnitaire=").append(getPrixUnitaire());
+        sb.append(", qteStock=").append(getQteStock());
+        sb.append(", auteur(s)=");
+
+        for (Auteur auteur : lesAuteurs) {
+            sb.append("auteur").append(lesAuteurs.indexOf(auteur)+1).append("=").append(auteur.getPrenom()).append(" ").append(auteur.getNom()).append(", ");
+        }
+
+        sb.append(", type=").append(type);
+        sb.append(']');
         return sb.toString();
     }
 }

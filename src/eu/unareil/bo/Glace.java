@@ -11,19 +11,16 @@ public class Glace extends ProduitPerissable{
     public Glace() {
     }
 
+    public Glace(long refProd,LocalDate datelimitConso, String marque, String libelle, int temperatureConservation, String parfum, long qteStock, float prixUnitaire) {
+        super(refProd,datelimitConso, marque, libelle, qteStock, prixUnitaire);
+        this.setParfum(parfum);
+        this.setTemperatureConservation(temperatureConservation);
+    }
+
 
     public Glace(LocalDate datelimitConso, String marque, String libelle, int temperatureConservation, String parfum, long qteStock, float prixUnitaire) {
-        super(datelimitConso, marque, libelle, qteStock, prixUnitaire);
-        this.parfum = parfum;
-        this.temperatureConservation = temperatureConservation;
+        this(0,datelimitConso, marque, libelle,temperatureConservation,parfum, qteStock, prixUnitaire);
     }
-
-
-    public Glace(long id ,LocalDate datelimitConso, String marque, String libelle, int temperatureConservation, String parfum, long qteStock, float prixUnitaire) {
-        this(datelimitConso, marque, libelle,temperatureConservation,parfum, qteStock, prixUnitaire);
-        this.setId(id);
-    }
-
 
     public long getId() {
         return id;
@@ -51,11 +48,15 @@ public class Glace extends ProduitPerissable{
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Glace{");
-        sb.append("id=").append(id);
-        sb.append(", parfum='").append(parfum).append('\'');
-        sb.append(", temperatureConservation=").append(temperatureConservation);
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("CartePostale [");
+        sb.append("libelle=").append(getLibelle());
+        sb.append(", marque=").append(getMarque());
+        sb.append(", prixUnitaire=").append(getPrixUnitaire());
+        sb.append(", qteStock=").append(getQteStock());
+        sb.append(", dateLimiteConso=").append(getDatelimitConso());
+        sb.append(", parfum=").append(getParfum());
+        sb.append(", temperatureConservation=").append(getTemperatureConservation());
+        sb.append(']');
         return sb.toString();
     }
 }

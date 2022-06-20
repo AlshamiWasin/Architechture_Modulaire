@@ -20,4 +20,12 @@ public class ProduitPerissable extends Produit{
         this.datelimitConso = datelimitConso;
     }
 
+
+    public LocalDate getDatelimitConso() {
+        return datelimitConso;
+    }
+
+    public void setDatelimitConso(LocalDate datelimitConso) {
+        this.datelimitConso = datelimitConso;
+    }
 }
