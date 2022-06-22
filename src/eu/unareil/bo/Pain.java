@@ -37,9 +37,10 @@ public class Pain extends ProduitPerissable{
         String pattern = "MM-dd-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
-        final StringBuilder sb = new StringBuilder("CartePostale [");
-        sb.append("libelle=").append(getLibelle());
+        final StringBuilder sb = new StringBuilder("Pain [");
+        sb.append("ref Produit=").append(getRefProd());
         sb.append(", marque=").append(getMarque());
+        sb.append(", libelle=").append(getLibelle());
         sb.append(", prixUnitaire=").append(getPrixUnitaire()).append(" euros");
         sb.append(", qteStock=").append(getQteStock());
         sb.append(", dateLimiteConso=").append( getDatelimitConso().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
