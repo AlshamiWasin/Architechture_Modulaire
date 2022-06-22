@@ -18,6 +18,11 @@ public class Auteur {
         this.prenom = prenom;
         this.nom = nom;
     }
+    public Auteur(long id,String prenom, String nom) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.setId(id);
+    }
     public Auteur(long id, String prenom, String nom ,List<CartePostale>  listCarte) {
         this(prenom,nom , listCarte);
         this.setId(id);
@@ -54,16 +59,6 @@ public class Auteur {
         sb.append("id=").append(id);
         sb.append(", prenom='").append(prenom).append('\'');
         sb.append(", nom='").append(nom).append('\'');
-        if (listCarte.isEmpty()){
-            sb.append(", CartePostales='").append("pas des cartePostales").append('\'');
-        }else {
-            sb.append(", les CartePostales='");
-            for (CartePostale cartePostale : listCarte) {
-                sb.append(cartePostale.toString());
-            }
-            sb.append('\'');
-        }
-
         sb.append('}');
         return sb.toString();
     }

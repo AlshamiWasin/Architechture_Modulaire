@@ -21,12 +21,12 @@ public class TestProduitJDBCImpl {
 			produitJdbc.insert(pain);
 			produitJdbc.insert(stylo);*/
 
-			List<Auteur> lesAuteursDeLaCarte = new ArrayList<>();
+			/*List<Auteur> lesAuteursDeLaCarte = new ArrayList<>();
 			lesAuteursDeLaCarte.add(auteurJdbc.selectById(7));
-			lesAuteursDeLaCarte.add(auteurJdbc.selectById(8));
+			lesAuteursDeLaCarte.add(auteurJdbc.selectById(8));*/
 
-			CartePostale Carte = new CartePostale("Carte Sud Bretagne","La mine d'Or", 10000, 0.80f,lesAuteursDeLaCarte,TypeCartePostale.Paysage);
-			produitJdbc.insert(Carte);
+			/*CartePostale Carte = new CartePostale("Carte Sud Bretagne","La mine d'Or", 10000, 0.80f,lesAuteursDeLaCarte,TypeCartePostale.Paysage);
+			produitJdbc.insert(Carte);*/
 
 			for(Produit produit: maListedeProduit)
 			{

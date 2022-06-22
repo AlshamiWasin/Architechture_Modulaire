@@ -17,8 +17,6 @@ public class JdbcTools {
         sb.append("user=").append(Settings.getProperty("user"));
         sb.append("&").append("password=").append(Settings.getProperty("mdp"));
 
-        System.out.println(sb.toString());
-
         Connection cnx = null;
 
         try {

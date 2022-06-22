@@ -18,7 +18,7 @@ public class AuteurJDCImp implements DAO<Auteur> {
     private static final String SQL_SELECT_ALL="select * from auteur";
 
 
-    private static final String SQL_SELECT_ALL_CARTE_AUTEUR_BY_ID="select * from carte_auteur where idAuteur = ?";
+    private static final String SQL_SELECT_ALL_CARTE_AUTEUR_BY_ID="select refProd from carte_auteur where idAuteur = ?";
     private static final String SQL_SELECT_BY_ID="select * from auteur where idAuteur=?";
 
 
@@ -131,25 +131,26 @@ public class AuteurJDCImp implements DAO<Auteur> {
             pstmt=cnx.prepareStatement(SQL_SELECT_BY_ID);
             pstmt.setLong(1, id);
             rs=pstmt.executeQuery();
+
             ProduitJDCImp produitJDCImp = new ProduitJDCImp();
             List<CartePostale> listCarte = new ArrayList<>();
             if(rs.next())
             {
+
                 AuteurPstmt=cnx.prepareStatement(SQL_SELECT_ALL_CARTE_AUTEUR_BY_ID);
                 AuteurPstmt.setLong(1,rs.getLong(1));
                 AuteurRs=AuteurPstmt.executeQuery();
-                if (AuteurRs.next()){
-                    System.out.println((CartePostale) produitJDCImp.selectById( rs.getLong(2)));
-                    listCarte.add((CartePostale) produitJDCImp.selectById( rs.getLong(2)));
+
+               if (AuteurRs.next()){
+                    listCarte.add((CartePostale) produitJDCImp.selectById( AuteurRs.getLong(1)));
                 }
-
-
-                auteur =new Auteur(rs.getLong(1),rs.getString(2),rs.getString(3) ,listCarte );
+                auteur =new Auteur(rs.getLong(1),rs.getString(2),rs.getString(3) ,listCarte);
             }
 
         } catch (SQLException e) {
+            throw  new RuntimeException(e);
             // TODO Auto-generated catch block
-            throw new DalException("erreur du select by id - id="+id,e.getCause());
+            /*throw new DalException("erreur du select by id - id="+id,e.getCause());*/
         }
         finally
         {
@@ -188,8 +189,7 @@ public class AuteurJDCImp implements DAO<Auteur> {
                 AuteurPstmt.setLong(1,rs.getLong(1));
                 AuteurRs=AuteurPstmt.executeQuery();
                 if (AuteurRs.next()){
-                    System.out.println((CartePostale) produitJDCImp.selectById( rs.getLong(2)));
-                    listCarte.add((CartePostale) produitJDCImp.selectById( rs.getLong(2)));
+                    listCarte.add((CartePostale) produitJDCImp.selectById( AuteurRs.getLong(1)));
                 }
 
                 auteur =new Auteur(rs.getLong(1),rs.getString(2),rs.getString(3),(List<CartePostale>) listCarte);
